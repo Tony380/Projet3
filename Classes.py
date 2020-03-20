@@ -1,5 +1,6 @@
 """In this file we keep all our classes and their respective methods"""
 
+# import necessary modules pygame and randrange from random to generate random figures
 import pygame
 from random import randrange
 
