@@ -7,9 +7,6 @@ from random import randrange
 coord_list_s = []
 coord_list_x = []
 
-wall = pygame.image.load("ressource/wall.png")
-floor = pygame.image.load("ressource/floor.png")
-
 
 # this class contains all other classes in order to charge them at once
 class Game:
