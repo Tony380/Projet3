@@ -1,16 +1,18 @@
-"""In this file we keep all our classes and their respective methods"""
-
-# import necessary modules pygame and randrange from random to generate random figures
 import pygame
 from random import randrange
 
-# couple of variables containing lists
 coord_list_s = []
 coord_list_x = []
+wall = pygame.image.load("ressource/wall.png")
+floor = pygame.image.load("ressource/floor.png")
+
+play = pygame.image.load("ressource/play.jpg")
+win = pygame.image.load("ressource/win.jpg")
+lose = pygame.image.load("ressource/lose.jpg")
 
 
-# this class will generate all other classes in our game at once
 class Game:
+
     def __init__(self):
         self.player = Player()
         self.ether = Ether()
@@ -20,23 +22,17 @@ class Game:
         self.warden = Warden()
 
 
-# this class inherits Sprite class properties and will generate the sprite of MacGyver
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        # this attribute will eventually change to "full" in order to make appear syringe item in the maze
         self.items = "empty"
-        # will contain the image of MacGyver
         self.image = pygame.image.load("ressource/MacGyver.png")
-        # rect represents the sprite's coordinates
         self.rect = self.image.get_rect()
         self.rect.x = 40
         self.rect.y = 0
 
-# a move method allowing MacGyver to move in the maze
     def move(self, direction):
         if direction == "up":
-            # will move 40 pixels in up direction
             self.rect.y -= 40
         elif direction == "down":
             self.rect.y += 40
@@ -46,31 +42,28 @@ class Player(pygame.sprite.Sprite):
             self.rect.x -= 40
 
 
-# ether item
 class Ether(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.image = pygame.image.load("ressource/ether.png")
-        # picking in self.pos random coordinates from a list containing free path coordinates
         self.pos = coord_list_s[randrange(0, len(coord_list_s))]
         self.rect = self.image.get_rect()
-        # getting x and y coordinates from tuple contained in self.pos
         self.rect.x = self.pos[0]
         self.rect.y = self.pos[1]
+        self.show = True
 
 
-# tube item
 class Tube(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("ressource/tube_plastique.png")
+        self.image = pygame.image.load("ressource/tube_plastique.png").convert()
         self.pos = coord_list_s[randrange(0, len(coord_list_s))]
         self.rect = self.image.get_rect()
         self.rect.x = self.pos[0]
         self.rect.y = self.pos[1]
+        self.show = True
 
 
-# sting item
 class Sting(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -79,9 +72,9 @@ class Sting(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = self.pos[0]
         self.rect.y = self.pos[1]
+        self.show = True
 
 
-# syringe item
 class Syringe(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -89,9 +82,10 @@ class Syringe(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 520
         self.rect.y = 480
+        self.show = False
 
 
-# this class will creat the warden
+
 class Warden(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -99,3 +93,4 @@ class Warden(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 520
         self.rect.y = 560
+        self.show = True
