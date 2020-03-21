@@ -1,9 +1,9 @@
 """ This is the main file which will run the game"""
 
 import pygame
+from random import randrange
 from Structure import maze_structure
-from Classes import *
-
+from Classes import Game, coord_list_s, coord_list_x, wall, floor
 
 pygame.init()
 
