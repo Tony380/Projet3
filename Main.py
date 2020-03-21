@@ -9,8 +9,10 @@ pygame.init()
 
 pygame.display.set_caption("Mac Gyver's Maze")
 screen = pygame.display.set_mode((600, 600))
+
 wall = pygame.image.load("ressource/wall.png")
 floor = pygame.image.load("ressource/floor.png")
+
 song = pygame.mixer.Sound("ressource/MacGyverSong.ogg")
 song.set_volume(0.02)
 song.play(10, 0)
