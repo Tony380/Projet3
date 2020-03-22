@@ -48,6 +48,7 @@ while True:
                     screen.blit(floor, (coord_x, coord_y))
                     coord_x += 40
             coord_y += 40
+        # removing 2 coordinates of this list to avoid items to place on
         coord_list_s.pop(-1)
         coord_list_s.pop(-2)
 
