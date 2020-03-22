@@ -29,7 +29,7 @@ class Game:
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.objects = 0
+        self.objects = {}
         self.items = "empty"
         self.image = pygame.image.load("ressource/MacGyver.png")
         self.rect = self.image.get_rect()

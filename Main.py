@@ -115,28 +115,26 @@ while True:
             # detection of player picking items
             if game.player.rect.colliderect(game.ether.rect):
                 game.ether.show = False
+                game.player.objects[game.ether] = "Ether"
             elif game.player.rect.colliderect(game.tube.rect):
+                game.player.objects[game.tube] = "Tube"
                 game.tube.show = False
             elif game.player.rect.colliderect(game.sting.rect):
+                game.player.objects[game.sting] = "Sting"
                 game.sting.show = False
-            elif game.player.rect.colliderect(game.syringe.rect):
-                if game.ether.show is False and game.tube.show is False and game.sting.show is False:
-                    game.player.items = "full"
+            elif game.player.rect.colliderect(game.syringe.rect) and len(game.player.objects) == 3:
+                game.syringe.show = False
+                game.player.objects[game.syringe] = "Syringe"
+                game.player.items = "full"
 
-            # syringe will appear
-            if game.ether.show is False and game.tube.show is False and game.sting.show is False:
+            if len(game.player.objects) == 3:
                 game.syringe.show = True
 
-            if game.ether.show is False and game.tube.show is False and game.sting.show\
-                    is False and game.player.items == "full":
-                game.syringe.show = False
-
-            # end of game with 2 options, win or lose
-            if game.player.items == "full" and game.player.rect.colliderect(game.warden.rect):
+            if len(game.player.objects) == 4 and game.player.rect.colliderect(game.warden.rect):
                 game.warden.show = False
                 screen.blit(game.win, (0, 0))
                 menu = ""
-            elif game.player.items == "empty" and game.player.rect.colliderect(game.warden.rect):
+            elif len(game.player.objects) < 4 and game.player.rect.colliderect(game.warden.rect):
                 screen.blit(game.lose, (0, 0))
                 menu = ""
 
