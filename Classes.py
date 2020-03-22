@@ -2,6 +2,7 @@
 
 import pygame
 from random import randrange
+import time
 
 # lists of coordinates to build the maze
 coord_list_s = []
@@ -12,6 +13,7 @@ coord_list_x = []
 class Game:
 
     def __init__(self):
+        self.pressed = {}
         self.player = Player()
         self.ether = Ether()
         self.tube = Tube()
@@ -35,6 +37,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.y = 0
 
     def move(self, direction):
+        time.sleep(0.1)
         if direction == "up":
             self.rect.y -= 40
         elif direction == "down":
