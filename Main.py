@@ -10,9 +10,7 @@ pygame.init()
 pygame.display.set_caption("Mac Gyver's Maze")
 screen = pygame.display.set_mode((600, 600))
 
-wall = pygame.image.load("ressource/wall.png")
-floor = pygame.image.load("ressource/floor.png")
-
+# this put some music
 song = pygame.mixer.Sound("ressource/MacGyverSong.ogg")
 song.set_volume(0.02)
 song.play(10, 0)
@@ -24,6 +22,8 @@ while True:
 
     # this function will build the maze
     def maze():
+        wall = pygame.image.load("ressource/wall.png")
+        floor = pygame.image.load("ressource/floor.png")
         coord_y = 0
         for element in maze_structure:
             coord_x = 0
@@ -63,15 +63,17 @@ while True:
     while True:
         # player can't move once game is over
         if not game.player.rect.colliderect(game.warden.rect):
-            if game.pressed.get(pygame.K_UP) and (game.player.rect.x, game.player.rect.y - 40) not in coord_list_x and \
-                    game.player.rect.y - 40 >= 0:
+            if game.pressed.get(pygame.K_UP) and (game.player.rect.x, game.player.rect.y - 40)\
+                    not in coord_list_x and game.player.rect.y - 40 >= 0:
                 game.player.move("up")
-            elif game.pressed.get(pygame.K_DOWN) and (game.player.rect.x, game.player.rect.y + 40) not in coord_list_x and \
-                    game.player.rect.y + 40 < 600:
+            elif game.pressed.get(pygame.K_DOWN) and (game.player.rect.x, game.player.rect.y + 40)\
+                    not in coord_list_x and game.player.rect.y + 40 < 600:
                 game.player.move("down")
-            elif game.pressed.get(pygame.K_RIGHT) and (game.player.rect.x + 40, game.player.rect.y) not in coord_list_x:
+            elif game.pressed.get(pygame.K_RIGHT) and (game.player.rect.x + 40, game.player.rect.y)\
+                    not in coord_list_x:
                 game.player.move("right")
-            elif game.pressed.get(pygame.K_LEFT) and (game.player.rect.x - 40, game.player.rect.y) not in coord_list_x:
+            elif game.pressed.get(pygame.K_LEFT) and (game.player.rect.x - 40, game.player.rect.y)\
+                    not in coord_list_x:
                 game.player.move("left")
 
         for event in pygame.event.get():
@@ -95,6 +97,7 @@ while True:
             screen.blit(game.player.image, game.player.rect)
 
             if game.ether.show:
+                # remove the black color background of our image
                 game.ether.image.set_colorkey((0, 0, 0))
                 screen.blit(game.ether.image, game.ether.pos)
 
@@ -130,6 +133,7 @@ while True:
             if len(game.player.objects) == 3:
                 game.syringe.show = True
 
+            # below 2 possible endings = win or lose
             if len(game.player.objects) == 4 and game.player.rect.colliderect(game.warden.rect):
                 game.warden.show = False
                 screen.blit(game.win, (0, 0))
