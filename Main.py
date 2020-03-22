@@ -61,17 +61,18 @@ while True:
 
     # second loop will contain our menu
     while True:
-        # player can't get out of the frame
-        if game.pressed.get(pygame.K_UP) and (game.player.rect.x, game.player.rect.y - 40) not in coord_list_x and \
-                game.player.rect.y - 40 >= 0:
-            game.player.move("up")
-        elif game.pressed.get(pygame.K_DOWN) and (game.player.rect.x, game.player.rect.y + 40) not in coord_list_x and \
-                game.player.rect.y + 40 < 600:
-            game.player.move("down")
-        elif game.pressed.get(pygame.K_RIGHT) and (game.player.rect.x + 40, game.player.rect.y) not in coord_list_x:
-            game.player.move("right")
-        elif game.pressed.get(pygame.K_LEFT) and (game.player.rect.x - 40, game.player.rect.y) not in coord_list_x:
-            game.player.move("left")
+        # player can't move once game is over
+        if not game.player.rect.colliderect(game.warden.rect):
+            if game.pressed.get(pygame.K_UP) and (game.player.rect.x, game.player.rect.y - 40) not in coord_list_x and \
+                    game.player.rect.y - 40 >= 0:
+                game.player.move("up")
+            elif game.pressed.get(pygame.K_DOWN) and (game.player.rect.x, game.player.rect.y + 40) not in coord_list_x and \
+                    game.player.rect.y + 40 < 600:
+                game.player.move("down")
+            elif game.pressed.get(pygame.K_RIGHT) and (game.player.rect.x + 40, game.player.rect.y) not in coord_list_x:
+                game.player.move("right")
+            elif game.pressed.get(pygame.K_LEFT) and (game.player.rect.x - 40, game.player.rect.y) not in coord_list_x:
+                game.player.move("left")
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
