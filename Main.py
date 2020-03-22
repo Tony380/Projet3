@@ -56,7 +56,7 @@ while True:
     # loading all other objects
     game = Game()
 
-    # this will avoid double coordinates
+    # this will avoid double coordinates for items to be placed
     while game.tube.pos == game.ether.pos:
         game.tube.pos = coord_list_s[randrange(0, len(coord_list_s))]
     while game.sting.pos == game.ether.pos or game.sting.pos == game.tube.pos:
