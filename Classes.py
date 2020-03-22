@@ -10,7 +10,7 @@ coord_list_s = []
 coord_list_x = []
 
 
-# this class contains all other classes in order to charge them at once
+# this class contains all other classes in order to load them all at once
 class Game:
     def __init__(self):
         self.pressed = {}
