@@ -13,6 +13,7 @@ coord_list_x = []
 # this class contains all other classes in order to load them all at once
 class Game:
     def __init__(self):
+        # below a dictionary keeping the items MacGyver has picked up
         self.pressed = {}
         self.player = Player()
         self.ether = Ether()
@@ -20,9 +21,9 @@ class Game:
         self.sting = Sting()
         self.syringe = Syringe()
         self.warden = Warden()
-        self.play = pygame.image.load("ressource/play.jpg").convert()
-        self.win = pygame.image.load("ressource/win.jpg").convert()
-        self.lose = pygame.image.load("ressource/lose.jpg").convert()
+        self.play = pygame.image.load("ressource/play.jpg")
+        self.win = pygame.image.load("ressource/win.jpg")
+        self.lose = pygame.image.load("ressource/lose.jpg")
 
 
 # this class represents MacGyver in the game and inherits from Sprite class
@@ -68,7 +69,7 @@ class Ether(pygame.sprite.Sprite):
 class Tube(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.image = pygame.image.load("ressource/tube_plastique.png").convert()
+        self.image = pygame.image.load("ressource/tube_plastique.png")
         self.pos = coord_list_s[randrange(0, len(coord_list_s))]
         self.rect = self.image.get_rect()
         self.rect.x = self.pos[0]
