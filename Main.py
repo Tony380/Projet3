@@ -53,7 +53,7 @@ while True:
 
     maze()
 
-    # iniating all other objects
+    # loading all other objects
     game = Game()
 
     # this will avoid double coordinates
