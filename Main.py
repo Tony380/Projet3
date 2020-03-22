@@ -104,7 +104,7 @@ while True:
                 screen.blit(game.sting.image, game.sting.pos)
 
             if game.syringe.show:
-                game.syringe.image.set_colorkey((255, 255, 255))
+                game.syringe.image.set_colorkey((0, 0, 0))
                 screen.blit(game.syringe.image, game.syringe.rect)
 
             if game.warden.show:
