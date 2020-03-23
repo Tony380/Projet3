@@ -139,7 +139,6 @@ while True:
             elif game.player.rect.colliderect(game.syringe.rect) and len(game.player.objects) == 3:
                 game.syringe.show = False
                 game.player.objects[game.syringe] = "Syringe"
-                game.player.items = "full"
 
             if len(game.player.objects) == 3:
                 game.syringe.show = True

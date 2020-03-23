@@ -32,7 +32,6 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         # here we create a dictionary to save the items MacGyver picks up
         self.objects = {}
-        self.items = "empty"
         self.image = pygame.image.load("ressource/MacGyver.png")
         # self.rect indicates 4 figures about our object : <abscissa, ordered, width and height>
         self.rect = self.image.get_rect()
