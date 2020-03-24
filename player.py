@@ -20,4 +20,3 @@ class Player:
             self.rect.x += 40
         elif direction == "left":
             self.rect.x -= 40
-

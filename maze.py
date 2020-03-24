@@ -39,4 +39,5 @@ class Maze:
                     screen.blit(self.floor, (coord_x, coord_y))
                     coord_x += 40
             coord_y += 40
-
+        self.coord_list_o.pop(-1)
+        self.coord_list_o.pop(-2)
