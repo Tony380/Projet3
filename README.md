@@ -5,10 +5,9 @@ Lets make MacGyver escape from this maze.
 
 Use the keyboard's arrows to move MacGyver across the maze.
 
-In order to win, pick up the 3 items. An ether bottle, a tube and a sting.
-MacGyver will make a syringe out of them.
-Pick up the syringe and make the warden sleep with it.
+In order to win, pick up the 3 items. An ether bottle, a pipe and a needle.
+MacGyver will make a syringe out of them and make the guard sleep.
 
-If you face the warden without having all the items, the syringe won't appear and then you will lose.
+If you face the guard without having all the items, you will lose.
 
 HAVE A NICE GAME!
