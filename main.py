@@ -1,9 +1,12 @@
+"""This is our main program.
+importing all the files containg our classes"""
+
 import pygame
 from maze import Maze
 from player import Player
 from items import Items
 
-
+"""initiates our pygame screen"""
 pygame.init()
 
 pygame.display.set_caption("Mac Gyver's Maze")
@@ -11,6 +14,7 @@ screen = pygame.display.set_mode((600, 600))
 
 
 def main():
+    """we load our maze and the images out of the loop"""
     maze = Maze("structure")
     maze.maze(screen)
 
@@ -29,9 +33,11 @@ def main():
     pipe.place(screen, maze.coord_list_o)
     needle.place(screen, maze.coord_list_o)
 
+    """below, the main loop of the game"""
     run = True
     while run:
         if player.rect != guard.rect:
+            """slowing down to 10 fps for the game not to be so fast"""
             pygame.time.Clock().tick(10)
             screen.blit(maze.floor, player.rect)
 
@@ -56,6 +62,7 @@ def main():
                     not in maze.coord_list_x:
                 player.move("left")
 
+            """creating an object counter"""
             if player.rect.colliderect(ether.rect):
                 player.objects["ether"] = ether
             elif player.rect.colliderect(pipe.rect):
@@ -65,6 +72,7 @@ def main():
 
             screen.blit(player.image, player.rect)
 
+            """ 2 possibles endings : win or lose"""
             if player.rect.colliderect(guard.rect) and len(player.objects) == 3:
                 win = pygame.image.load("ressource/win.jpg")
                 screen.blit(win, (0, 0))
@@ -74,6 +82,7 @@ def main():
                 screen.blit(lose, (0, 0))
                 run = False
 
+            """refreshing our screen"""
             pygame.display.flip()
 
 
