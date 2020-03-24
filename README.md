@@ -1,5 +1,5 @@
 # Projet3
-Mac Gyver's maze
+MacGyver's maze
 
 Lets make MacGyver escape from this maze.
 
@@ -11,8 +11,4 @@ Pick up the syringe and make the warden sleep with it.
 
 If you face the warden without having all the items, the syringe won't appear and then you will lose.
 
-You'll be able to leave the game at any moment by pressing "e".
-To return to the start menu press "m" any time.
-
 HAVE A NICE GAME!
-
