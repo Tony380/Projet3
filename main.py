@@ -37,8 +37,7 @@ def main():
     run = True
     while run:
         if player.rect != guard.rect:
-            """slowing down to 10 fps for the game not to be so fast"""
-            pygame.time.Clock().tick(10)
+            pygame.time.Clock().tick(10)  # slowing down to 10 fps for the game not to be so fast
             screen.blit(maze.floor, player.rect)
 
             for event in pygame.event.get():
@@ -66,9 +65,9 @@ def main():
             if player.rect.colliderect(ether.rect):
                 player.objects["ether"] = ether
             elif player.rect.colliderect(pipe.rect):
-                player.objects["pipe"] = ether
+                player.objects["pipe"] = pipe
             elif player.rect.colliderect(needle.rect):
-                player.objects["needle"] = ether
+                player.objects["needle"] = needle
 
             screen.blit(player.image, player.rect)
 
