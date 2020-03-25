@@ -43,6 +43,5 @@ class Maze:
                     screen.blit(self.floor, (coord_x, coord_y))
                     coord_x += 40
             coord_y += 40
-        """we remove 2 spots in this list for proximity to guard"""
         self.coord_list_o.pop(-1)
-        self.coord_list_o.pop(-2)
+        self.coord_list_o.pop(-2)  # we remove 2 spots in this list for proximity to guard
