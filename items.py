@@ -1,16 +1,17 @@
-"""this file contains the item class wich will create all our items and the guard"""
 import random
+import pygame
 
 
 class Items:
-    def __init__(self, name, image):
+    def __init__(self, name, image, cell_size):
         self.name = name
+        self.cell_size = cell_size
         self.image = image
+        self.image = pygame.transform.scale(self.image, (cell_size, cell_size))
         self.rect = self.image.get_rect()
         self.rect.x = 0
         self.rect.y = 0
 
-    """this method will automatically place our items with giving them the same spot"""
     def place(self, screen, list_coord):
         position = random.choice(list_coord)
         screen.blit(self.image, position)

@@ -1,26 +1,24 @@
-"""This is our player class"""
 import pygame
 
 
 class Player:
-    def __init__(self, position):
-        """dictionary to save our moves in order to let pressed the keyboard's key to move"""
+    def __init__(self, position, cell_size):
+        super().__init__()
         self.pressed = {}
-        """this will save the picked up items"""
         self.objects = {}
         self.image = pygame.image.load("ressource/macgyver.png")
-        """rect will keep player's coordinates"""
+        self.image = pygame.transform.scale(self.image, (cell_size, cell_size))
         self.rect = self.image.get_rect()
         self.rect.x = position[0]
         self.rect.y = position[1]
+        self.velocity = cell_size
 
-    """ method for the player to move in the maze"""
     def move(self, direction):
         if direction == "up":
-            self.rect.y -= 40
+            self.rect.y -= self.velocity
         elif direction == "down":
-            self.rect.y += 40
+            self.rect.y += self.velocity
         elif direction == "right":
-            self.rect.x += 40
+            self.rect.x += self.velocity
         elif direction == "left":
-            self.rect.x -= 40
+            self.rect.x -= self.velocity
