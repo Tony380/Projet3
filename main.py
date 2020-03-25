@@ -72,13 +72,13 @@ def main():
             screen.blit(player.image, player.rect)
 
             """ 2 possibles endings : win or lose"""
-            if player.rect.colliderect(guard.rect) and len(player.objects) == 3:
-                win = pygame.image.load("ressource/win.jpg")
-                screen.blit(win, (0, 0))
-                run = False
-            elif player.rect.colliderect(guard.rect) and len(player.objects) != 3:
-                lose = pygame.image.load("ressource/lose.jpg")
-                screen.blit(lose, (0, 0))
+            if player.rect.colliderect(guard.rect):
+                if len(player.objects) == 3:
+                    win = pygame.image.load("ressource/win.jpg")
+                    screen.blit(win, (0, 0))
+                else:
+                    lose = pygame.image.load("ressource/lose.jpg")
+                    screen.blit(lose, (0, 0))
                 run = False
 
             """refreshing our screen"""
