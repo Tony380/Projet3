@@ -17,7 +17,7 @@ class Maze:
         self.coord_list_a = []
 
     def load_structure(self):
-        with open(self.name + ".txt") as file:
+        with open(self.name + ".txt", "r") as file:
             grid = file.readlines()
         return grid
 
