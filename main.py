@@ -11,8 +11,11 @@ def main():
     cell_size = 40
 
     maze = Maze("structure", cell_size)
-    resolution = maze.maze_size * cell_size
-    screen = pygame.display.set_mode((resolution, resolution))
+
+    height = maze.maze_height * cell_size
+    width = maze.maze_width * cell_size
+
+    screen = pygame.display.set_mode((width, height))
 
     maze.maze(screen)
 
@@ -20,10 +23,13 @@ def main():
 
     guard = Items("guard", pygame.image.load("ressource/guard.png"), cell_size)
     guard.place(screen, maze.coord_list_a)
+
     ether = Items("ether", pygame.image.load("ressource/ether.png"), cell_size)
     ether.image.set_colorkey((0, 0, 0))
+
     pipe = Items("pipe", pygame.image.load("ressource/pipe.png"), cell_size)
     pipe.image.set_colorkey((0, 0, 0))
+
     needle = Items("needle", pygame.image.load("ressource/needle.png"), cell_size)
 
     ether.place(screen, maze.coord_list_o)
@@ -48,13 +54,13 @@ def main():
                     not in maze.coord_list_x and player.rect.y - cell_size >= 0:
                 player.move("up")
             elif player.pressed.get(pygame.K_DOWN) and (player.rect.x, player.rect.y + cell_size) \
-                    not in maze.coord_list_x and player.rect.y + cell_size < resolution:
+                    not in maze.coord_list_x and player.rect.y + cell_size < height:
                 player.move("down")
             elif player.pressed.get(pygame.K_RIGHT) and (player.rect.x + cell_size, player.rect.y) \
-                    not in maze.coord_list_x:
+                    not in maze.coord_list_x and player.rect.x + cell_size < width:
                 player.move("right")
             elif player.pressed.get(pygame.K_LEFT) and (player.rect.x - cell_size, player.rect.y) \
-                    not in maze.coord_list_x:
+                    not in maze.coord_list_x and player.rect.x - cell_size >= 0:
                 player.move("left")
 
             if player.rect.colliderect(ether.rect):
@@ -69,11 +75,11 @@ def main():
             if player.rect.colliderect(guard.rect):
                 if len(player.objects) == 3:
                     win = pygame.image.load("ressource/win.jpg")
-                    win = pygame.transform.scale(win, (resolution, resolution))
+                    win = pygame.transform.scale(win, (width, height))
                     screen.blit(win, (0, 0))
                 else:
                     lose = pygame.image.load("ressource/lose.jpg")
-                    lose = pygame.transform.scale(lose, (resolution, resolution))
+                    lose = pygame.transform.scale(lose, (width, height))
                     screen.blit(lose, (0, 0))
                 run = False
 

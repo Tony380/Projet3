@@ -6,7 +6,8 @@ class Maze:
         self.name = file_name
         self.cell_size = cell_size
         self.structure = self.load_structure()
-        self.maze_size = len(self.structure)
+        self.maze_height = len(self.structure)
+        self.maze_width = len(self.structure[0])
         self.wall = pygame.image.load("ressource/wall.png")
         self.wall = pygame.transform.scale(self.wall, (cell_size, cell_size))
         self.floor = pygame.image.load("ressource/floor.png")
@@ -19,6 +20,8 @@ class Maze:
     def load_structure(self):
         with open(self.name + ".txt", "r") as file:
             grid = file.readlines()
+            for i in range(len(grid)):
+                grid[i] = grid[i].strip()
         return grid
 
     def maze(self, screen):

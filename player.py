@@ -11,14 +11,14 @@ class Player:
         self.rect = self.image.get_rect()
         self.rect.x = position[0]
         self.rect.y = position[1]
-        self.velocity = cell_size
+        self.cell_size = cell_size
 
     def move(self, direction):
         if direction == "up":
-            self.rect.y -= self.velocity
+            self.rect.y -= self.cell_size
         elif direction == "down":
-            self.rect.y += self.velocity
+            self.rect.y += self.cell_size
         elif direction == "right":
-            self.rect.x += self.velocity
+            self.rect.x += self.cell_size
         elif direction == "left":
-            self.rect.x -= self.velocity
+            self.rect.x -= self.cell_size
