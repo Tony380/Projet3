@@ -29,19 +29,16 @@ class Maze:
                 if letter == "X":
                     self.coord_list_x.append((coord_x, coord_y))
                     screen.blit(self.wall, (coord_x, coord_y))
-                    coord_x += 40
                 elif letter == "O":
                     self.coord_list_o.append((coord_x, coord_y))
                     screen.blit(self.floor, (coord_x, coord_y))
-                    coord_x += 40
                 elif letter == "D":
                     self.coord_list_d.append((coord_x, coord_y))
                     screen.blit(self.floor, (coord_x, coord_y))
-                    coord_x += 40
                 elif letter == "A":
                     self.coord_list_a.append((coord_x, coord_y))
                     screen.blit(self.floor, (coord_x, coord_y))
-                    coord_x += 40
+                coord_x += 40
             coord_y += 40
         self.coord_list_o.pop(-1)
         self.coord_list_o.pop(-2)  # we remove 2 spots in this list for proximity to guard
