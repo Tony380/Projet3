@@ -51,6 +51,7 @@ def main():
                 elif event.type == pygame.KEYUP:
                     player.pressed[event.key] = False
 
+            """Player move"""
             if player.pressed.get(pygame.K_UP) and (player.rect.x, player.rect.y - cell_size) \
                     not in maze.coord_list_x and player.rect.y - cell_size >= 0:
                 player.move("up")
@@ -64,6 +65,7 @@ def main():
                     not in maze.coord_list_x and player.rect.x - cell_size >= 0:
                 player.move("left")
 
+            """Collecting items"""
             if player.rect.colliderect(ether.rect):
                 player.objects["ether"] = ether
             elif player.rect.colliderect(pipe.rect):
@@ -73,6 +75,7 @@ def main():
 
             screen.blit(player.image, player.rect)
 
+            """Two possible endings"""
             if player.rect.colliderect(guard.rect):
                 if len(player.objects) == 3:
                     win = pygame.image.load("ressource/win.jpg")
