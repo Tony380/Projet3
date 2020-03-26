@@ -66,9 +66,9 @@ def main():
             if player.rect.colliderect(ether.rect):
                 player.objects["ether"] = ether
             elif player.rect.colliderect(pipe.rect):
-                player.objects["pipe"] = ether
+                player.objects["pipe"] = pipe
             elif player.rect.colliderect(needle.rect):
-                player.objects["needle"] = ether
+                player.objects["needle"] = needle
 
             screen.blit(player.image, player.rect)
 
