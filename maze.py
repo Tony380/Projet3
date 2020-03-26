@@ -1,3 +1,4 @@
+"""Class Maze with one method to load a maze from a text file and another method to build it"""
 import pygame
 
 

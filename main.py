@@ -1,3 +1,4 @@
+"""Main program importing pygame and all our classes"""
 import pygame
 from maze import Maze
 from player import Player

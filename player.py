@@ -1,9 +1,9 @@
+"""Player class and its method to move in the maze"""
 import pygame
 
 
 class Player:
     def __init__(self, position, cell_size):
-        super().__init__()
         self.pressed = {}
         self.objects = {}
         self.image = pygame.image.load("ressource/macgyver.png")
