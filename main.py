@@ -43,6 +43,7 @@ def main():
             pygame.time.Clock().tick(10)
             screen.blit(maze.floor, player.rect)
 
+            """Mouse and keyboard's events detection"""
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
