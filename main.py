@@ -6,6 +6,7 @@ from items import Items
 
 
 def main():
+    """Main function"""
     pygame.init()
     pygame.display.set_caption("MacGyver's Maze")
 
@@ -43,7 +44,7 @@ def main():
             pygame.time.Clock().tick(10)
             screen.blit(maze.floor, player.rect)
 
-            """Mouse and keyboard's events detection"""
+            #  Mouse and keyboard's events detection
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
@@ -52,7 +53,7 @@ def main():
                 elif event.type == pygame.KEYUP:
                     player.pressed[event.key] = False
 
-            """Player move"""
+            #  Player move
             if player.pressed.get(pygame.K_UP) and (player.rect.x, player.rect.y - cell_size) \
                     not in maze.coord_list_x and player.rect.y - cell_size >= 0:
                 player.move("up")
@@ -66,7 +67,7 @@ def main():
                     not in maze.coord_list_x and player.rect.x - cell_size >= 0:
                 player.move("left")
 
-            """Collecting items"""
+            #  Collecting items
             if player.rect.colliderect(ether.rect):
                 player.objects["ether"] = ether
             elif player.rect.colliderect(pipe.rect):
@@ -76,7 +77,7 @@ def main():
 
             screen.blit(player.image, player.rect)
 
-            """Two possible endings"""
+            #  Two possible endings
             if player.rect.colliderect(guard.rect):
                 if len(player.objects) == 3:
                     win = pygame.image.load("ressource/win.jpg")

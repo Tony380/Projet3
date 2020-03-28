@@ -3,6 +3,7 @@ import pygame
 
 
 class Player:
+    """MacGyver's class"""
     def __init__(self, position, cell_size):
         self.pressed = {}
         self.objects = {}
@@ -14,6 +15,7 @@ class Player:
         self.cell_size = cell_size
 
     def move(self, direction):
+        """Move method for player"""
         if direction == "up":
             self.rect.y -= self.cell_size
         elif direction == "down":

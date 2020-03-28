@@ -3,6 +3,7 @@ import pygame
 
 
 class Maze:
+    """Maze class contains the maze structure"""
     def __init__(self, file_name, cell_size):
         self.name = file_name
         self.cell_size = cell_size
@@ -19,6 +20,7 @@ class Maze:
         self.coord_list_a = []
 
     def load_structure(self):
+        """This method will load any maze as an attribute"""
         with open(self.name + ".txt", "r") as file:
             grid = file.readlines()
             for i in range(len(grid)):
@@ -26,6 +28,7 @@ class Maze:
         return grid
 
     def maze(self, screen):
+        """This method will display the maze on the screen"""
         coord_y = 0
         for lines in self.structure:
             coord_x = 0

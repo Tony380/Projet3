@@ -4,6 +4,7 @@ import pygame
 
 
 class Items:
+    """Items and guard attributes"""
     def __init__(self, name, image, cell_size):
         self.name = name
         self.cell_size = cell_size
