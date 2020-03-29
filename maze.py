@@ -14,10 +14,7 @@ class Maze:
         self.wall = pygame.transform.scale(self.wall, (cell_size, cell_size))
         self.floor = pygame.image.load("ressource/floor.png")
         self.floor = pygame.transform.scale(self.floor, (cell_size, cell_size))
-        self.coord_list_o = []
-        self.coord_list_x = []
-        self.coord_list_d = []
-        self.coord_list_a = []
+        self.coord_list = [[], [], [], []]
 
     def load_structure(self):
         """This method will load any maze as an attribute"""
@@ -34,16 +31,16 @@ class Maze:
             coord_x = 0
             for letter in lines:
                 if letter == "X":
-                    self.coord_list_x.append((coord_x, coord_y))
+                    self.coord_list[0].append((coord_x, coord_y))
                     screen.blit(self.wall, (coord_x, coord_y))
                 elif letter == "O":
-                    self.coord_list_o.append((coord_x, coord_y))
+                    self.coord_list[1].append((coord_x, coord_y))
                     screen.blit(self.floor, (coord_x, coord_y))
                 elif letter == "D":
-                    self.coord_list_d.append((coord_x, coord_y))
+                    self.coord_list[2].append((coord_x, coord_y))
                     screen.blit(self.floor, (coord_x, coord_y))
                 elif letter == "A":
-                    self.coord_list_a.append((coord_x, coord_y))
+                    self.coord_list[3].append((coord_x, coord_y))
                     screen.blit(self.floor, (coord_x, coord_y))
                 coord_x += self.cell_size
             coord_y += self.cell_size

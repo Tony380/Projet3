@@ -6,7 +6,7 @@ from items import Items
 
 
 def main():
-    """Main function"""
+    """Main program"""
     pygame.init()
     pygame.display.set_caption("MacGyver's Maze")
 
@@ -21,10 +21,10 @@ def main():
 
     maze.maze(screen)
 
-    player = Player(maze.coord_list_d[0], cell_size)
+    player = Player(maze.coord_list[2][0], cell_size)
 
     guard = Items("guard", pygame.image.load("ressource/guard.png"), cell_size)
-    guard.place(screen, maze.coord_list_a)
+    guard.place(screen, maze.coord_list[3])
 
     ether = Items("ether", pygame.image.load("ressource/ether.png"), cell_size)
     ether.image.set_colorkey((0, 0, 0))
@@ -34,9 +34,9 @@ def main():
 
     needle = Items("needle", pygame.image.load("ressource/needle.png"), cell_size)
 
-    ether.place(screen, maze.coord_list_o)
-    pipe.place(screen, maze.coord_list_o)
-    needle.place(screen, maze.coord_list_o)
+    ether.place(screen, maze.coord_list[1])
+    pipe.place(screen, maze.coord_list[1])
+    needle.place(screen, maze.coord_list[1])
 
     run = True
     while run:
@@ -55,16 +55,16 @@ def main():
 
             #  Player move
             if player.pressed.get(pygame.K_UP) and (player.rect.x, player.rect.y - cell_size) \
-                    not in maze.coord_list_x and player.rect.y - cell_size >= 0:
+                    not in maze.coord_list[0] and player.rect.y - cell_size >= 0:
                 player.move("up")
             elif player.pressed.get(pygame.K_DOWN) and (player.rect.x, player.rect.y + cell_size) \
-                    not in maze.coord_list_x and player.rect.y + cell_size < height:
+                    not in maze.coord_list[0] and player.rect.y + cell_size < height:
                 player.move("down")
             elif player.pressed.get(pygame.K_RIGHT) and (player.rect.x + cell_size, player.rect.y) \
-                    not in maze.coord_list_x and player.rect.x + cell_size < width:
+                    not in maze.coord_list[0] and player.rect.x + cell_size < width:
                 player.move("right")
             elif player.pressed.get(pygame.K_LEFT) and (player.rect.x - cell_size, player.rect.y) \
-                    not in maze.coord_list_x and player.rect.x - cell_size >= 0:
+                    not in maze.coord_list[0] and player.rect.x - cell_size >= 0:
                 player.move("left")
 
             #  Collecting items
