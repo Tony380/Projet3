@@ -2,7 +2,7 @@
 import pygame
 from maze import Maze
 from player import Player
-from items import Items
+from item import Item
 
 
 def main():
@@ -23,16 +23,16 @@ def main():
 
     player = Player(maze.coord_list[2][0], cell_size)
 
-    guard = Items("guard", pygame.image.load("ressource/guard.png"), cell_size)
+    guard = Item("guard", pygame.image.load("ressource/guard.png"), cell_size)
     guard.place(screen, maze.coord_list[3])
 
-    ether = Items("ether", pygame.image.load("ressource/ether.png"), cell_size)
+    ether = Item("ether", pygame.image.load("ressource/ether.png"), cell_size)
     ether.image.set_colorkey((0, 0, 0))
 
-    pipe = Items("pipe", pygame.image.load("ressource/pipe.png"), cell_size)
+    pipe = Item("pipe", pygame.image.load("ressource/pipe.png"), cell_size)
     pipe.image.set_colorkey((0, 0, 0))
 
-    needle = Items("needle", pygame.image.load("ressource/needle.png"), cell_size)
+    needle = Item("needle", pygame.image.load("ressource/needle.png"), cell_size)
 
     ether.place(screen, maze.coord_list[1])
     pipe.place(screen, maze.coord_list[1])

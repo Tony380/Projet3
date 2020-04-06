@@ -3,13 +3,12 @@ import random
 import pygame
 
 
-class Items:
+class Item:
     """Items and guard attributes"""
     def __init__(self, name, image, cell_size):
         self.name = name
         self.cell_size = cell_size
-        self.image = image
-        self.image = pygame.transform.scale(self.image, (cell_size, cell_size))
+        self.image = pygame.transform.scale(image, (cell_size, cell_size))
         self.rect = self.image.get_rect()
         self.rect.x = 0
         self.rect.y = 0
